@@ -1,0 +1,15 @@
+<!-- templates/arguments_new.html-->
+{% extends 'base.html'%}
+{% block content %}
+<div class= 'row'>
+    <div class = 'col-md-2 col-md-offset-3'>
+        <form method = 'POST' action=/arguments>
+            {% include partials/arguments_form.html %}
+            <div class = 'form-group'>
+                <button class='btn btn-ptimary' type='submit'>Post</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
