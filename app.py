@@ -30,6 +30,7 @@ def arguments_submit():
     argument ={
         'title': request.form.get('title'),
         'point': request.form.get('point'),
+        'optradio': request.form.get('optradio')
     }
     arguments.insert_one(argument)
     #argument_id = arguments.insert_one(argument).inserted_id
