@@ -38,13 +38,22 @@ def arguments_submit():
     return redirect(url_for('index'))
 
 #Update
-@app.route('/arguments/<argument_id>/edit', methods=['POST'])
+@app.route('/arguments/<argument_id>/edit')
 def arguments_edit(argument_id):
     argument = arguments.find_one({'_id' : ObjectId(argument_id)})
     return render_template('arguments_edit.html',argument=argument)
 
 
-@app.route('/arguments/<argument_id>
+@app.route('/arguments/<argument_id>', methods=['POST'])
+def arguments_update(argument_id):
+    update_argument={
+        'title': request.form.get('title'),
+        'point': request.form.get('point'),
+        'optradio': request.form.get('optradio')
+    }
+    arguments.update_one({'_id':ObjectId(argument_id)},{'$set': update_argument})
+    return redirect(url_for('index'))
+    pass
 
 #Destroy
 if __name__=='__main__':
