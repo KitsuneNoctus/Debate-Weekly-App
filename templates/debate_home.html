@@ -10,7 +10,7 @@
                     {% if argument.optradio == 'argument1' %}
                         <h4>{{ argument.title }}</h4>
                         <small>{{ argument.point }}</small><br>
-                        <small>{{ argument.optradio }}</small><br>
+                        <p><a href='/arguments/{{ argument._id }}/edit'>Edit</a></p>
                     {% endif %}
                 {% endfor %}
             </div>
@@ -23,7 +23,7 @@
                     {% if argument.optradio == 'argument2' %}
                         <h4>{{ argument.title }}</h4>
                         <small>{{ argument.point }}</small><br>
-
+                        <p><a href='/arguments/{{ argument._id }}/edit'>Edit</a></p>
                     {% endif %}
                 {% endfor %}
             </div>

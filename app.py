@@ -38,6 +38,14 @@ def arguments_submit():
     return redirect(url_for('index'))
 
 #Update
+@app.route('/arguments/<argument_id>/edit', methods=['POST'])
+def arguments_edit(argument_id):
+    argument = arguments.find_one({'_id' : ObjectId(argument_id)})
+    return render_template('arguments_edit.html',argument=argument)
+
+
+@app.route('/arguments/<argument_id>
+
 #Destroy
 if __name__=='__main__':
     app.run()
