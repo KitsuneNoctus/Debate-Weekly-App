@@ -12,13 +12,29 @@ arguments = db.arguments
 
 app = Flask(__name__)
 
+#Read
 @app.route('/')
 def index():
     """Homepage"""
-    return render_template('debate_home.html')
+    return render_template('debate_home.html', arguments=arguments.find())
+#Create Call
+@app.route('/arguments/new')
+def argumentss_new():
+    """Creating new argument point."""
+    return render_template('arguments_new.html', argument={}, name='New Argument')
 
-#Create
-#Read
+#Actually Creating --------------------------
+@app.route('/arguments', methods=['POST'])
+def arguments_submit():
+    """Submit a new Argument point."""
+    argument ={
+        'title': request.form.get('title'),
+        'point': request.form.get('point'),
+    }
+    arguments.insert_one(argument)
+    #argument_id = arguments.insert_one(argument).inserted_id
+    return redirect(url_for('index'))
+
 #Update
 #Destroy
 if __name__=='__main__':

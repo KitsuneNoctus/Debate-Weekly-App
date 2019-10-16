@@ -3,9 +3,17 @@
 {% block content%}
 <div class = 'col'>
     <h2>Argument 1</h2>
+    {% for argument in arguments %}
+        <h4>{{ argument.title }}</h4>
+        <small>{{ argument.point }}</small><br>
+    {% endfor %}
 </div>
 
 <div class = 'col'>
     <h2>Argument 2</h2>
+    {% for argument in arguments %}
+        <h4>{{ argument.title }}</h4>
+        <small>{{ argument.point }}</small><br>
+    {% endfor %}
 </div>
 {% endblock %}
