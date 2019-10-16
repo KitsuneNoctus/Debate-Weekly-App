@@ -16,7 +16,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     """Homepage"""
-    return render_template('debate_home.html', arguments=arguments.find())
+    return render_template('debate_home.html', arguments1=arguments.find({'optradio':'argument1'}),arguments2=arguments.find({'optradio':'argument2'}))
 #Create Call
 @app.route('/arguments/new')
 def argumentss_new():
@@ -32,6 +32,7 @@ def arguments_submit():
         'point': request.form.get('point'),
         'optradio': request.form.get('optradio')
     }
+    print(argument['optradio'])
     arguments.insert_one(argument)
     #argument_id = arguments.insert_one(argument).inserted_id
     return redirect(url_for('index'))

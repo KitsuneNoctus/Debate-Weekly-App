@@ -4,25 +4,29 @@
 <div class='container'>
     <div class='row'>
         <div class = 'col'>
-            <h2>Argument 1</h2>
-            {% for argument in arguments %}
-                {% if argument.optradio == 'argument1' %}
-                    <h4>{{ argument.title }}</h4>
-                    <small>{{ argument.point }}</small><br>
-                {% endif %}
-            {% endfor %}
+            <div class='text-center'>
+                <h2>Argument 1</h2>
+                {% for argument in arguments1 %}
+                    {% if argument.optradio == 'argument1' %}
+                        <h4>{{ argument.title }}</h4>
+                        <small>{{ argument.point }}</small><br>
+                        <small>{{ argument.optradio }}</small><br>
+                    {% endif %}
+                {% endfor %}
+            </div>
         </div>
 
-
-
         <div class = 'col'>
-            <h2>Argument 2</h2>
-            {% for argument in arguments %}
-                {% if argument.optradio == 'argument2' %}
-                    <h4>{{ argument.title }}</h4>
-                    <small>{{ argument.point }}</small><br>
-                {% endif %}
-            {% endfor %}
+            <div class='text-center'>
+                <h2>Argument 2</h2>
+                {% for argument in arguments2 %}
+                    {% if argument.optradio == 'argument2' %}
+                        <h4>{{ argument.title }}</h4>
+                        <small>{{ argument.point }}</small><br>
+
+                    {% endif %}
+                {% endfor %}
+            </div>
         </div>
     </div>
 </div>
