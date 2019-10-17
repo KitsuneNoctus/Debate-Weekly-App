@@ -10,6 +10,7 @@ client = MongoClient(host=f'{host}?retryWrites=false')
 db = client.get_default_database()
 #db = client.Arguments
 arguments = db.arguments
+comments = db.comments
 
 
 app = Flask(__name__)
@@ -71,6 +72,17 @@ def arguments_delete(argument_id):
     """Delete an argument you don't want anymore"""
     arguments.delete_one({'_id':ObjectId(argument_id)})
     return redirect(url_for('index'))
+
+#========================================================================
+#-------Comments--------------
+@app.route('/arguments/comments', methods=['POST'])
+def comments_new():
+    pass
+
+#Delete a Comment ----------------------------------------
+@app.route('/arguments/comments/<comment_id>', methods=['POST'])
+def comments_delete(comment_id):
+    pass
 
 
 if __name__=='__main__':

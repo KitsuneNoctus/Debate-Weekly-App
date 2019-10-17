@@ -1,0 +1,25 @@
+<!-- templates/partials/comment_form.html -->
+
+<form action='/arguments/comments' method='POST'>
+    <input type='hidden' value='{{ argument._id }}' name='argument_id'/>
+    <fieldset>
+
+<form>
+    <fieldset>
+        <legend>Add a Comment</legend>
+
+        <!-- DESCRIPTION -->
+        <div class='form-group'>
+            <label for='comment-content'>Comment</label><br>
+            <textarea class='form-control'
+                id='comment-content'
+                name='content'
+                placeholder='Your comment...'/></textarea>
+        </div>
+    </fieldset>
+
+    <!-- BUTTON -->
+    <div class='form-group'>
+        <button class='btn btn-primary' type='submit'>Save Comment</button>
+    </div>
+</form>

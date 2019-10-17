@@ -1,0 +1,11 @@
+<!-- templates/partials/comment.html -->
+
+<div class='card'>
+    <div class='card-block'>
+        <p class='card-text'>{{ comment.content }}</p>
+        <!-- Delete link -->
+        <p><form method='POST' action='/arguments/comments/{{ comment._id }}'>
+            <button class='btn btn-link' type='submit'>Delete</button>
+        </form></p>
+    </div>
+</div>
