@@ -8,7 +8,7 @@
                 <h2>Pro Argument</h2>
                 {% for argument in arguments1 %}
                     {% if argument.optradio == 'argument1' %}
-                        <div class="card border-primary my-2">
+                        <div class="card border-primary shadow my-2">
                             <div class="card-body">
                                 <h4 class="card-header">{{ argument.title }}</h4>
                                 <small>{{ argument.point }}</small><br>
@@ -26,7 +26,7 @@
                 <h2>Con Argument</h2>
                 {% for argument in arguments2 %}
                     {% if argument.optradio == 'argument2' %}
-                        <div class="card border-danger my-2">
+                        <div class="card border-danger shadow my-2">
                             <div class="card-body">
                                 <h4 class="card-header">{{ argument.title }}</h4>
                                 <small>{{ argument.point }}</small><br>
