@@ -18,10 +18,17 @@ def index():
     """Homepage"""
     return render_template('debate_home.html', arguments1=arguments.find({'optradio':'argument1'}),arguments2=arguments.find({'optradio':'argument2'}))
 #Create Call
-@app.route('/arguments/new')
-def argumentss_new():
+@app.route('/arguments/new1')
+def arguments_new1():
     """Creating new argument point."""
-    return render_template('arguments_new.html', argument={}, name='New Argument')
+    opt_choice = 'argument1'
+    return render_template('arguments_new.html', argument={}, name='New Argument', opt_choice=opt_choice)
+
+@app.route('/arguments/new2')
+def arguments_new2():
+    """Creating new argument point."""
+    opt_choice = 'argument2'
+    return render_template('arguments_new.html', argument={}, name='New Argument',opt_choice=opt_choice)
 
 #Actually Creating --------------------------
 @app.route('/arguments', methods=['POST'])
