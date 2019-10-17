@@ -53,8 +53,13 @@ def arguments_update(argument_id):
     }
     arguments.update_one({'_id':ObjectId(argument_id)},{'$set': update_argument})
     return redirect(url_for('index'))
-    pass
 
 #Destroy
+@app.route('/arguments/<argument_id>/delete')
+def arguments_delete(argument_id):
+    arguments.delete_one({'_id':ObjectId(argument_id)})
+    return redirect(url_for('index'))
+
+
 if __name__=='__main__':
     app.run()
