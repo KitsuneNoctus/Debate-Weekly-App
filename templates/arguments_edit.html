@@ -4,7 +4,8 @@
 <h2>Editing</h2>
 <div class= 'row'>
     <div class = 'col'>
-        <form method = 'POST' action=/arguments>
+        <form method = 'POST' action='/arguments/{{argument._id}}'>
+            <input type='hidden' name='_method' value='PUT'/>
             {% include 'partials/arguments_form.html' %}
             <!-- Button to submit -->
             <div class = 'form-group'>

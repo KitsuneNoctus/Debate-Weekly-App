@@ -21,13 +21,13 @@ def index():
 #Create Call
 @app.route('/arguments/new1')
 def arguments_new1():
-    """Creating new argument point."""
+    """Link to create a new argument for the pro side"""
     opt_choice = 'argument1'
     return render_template('arguments_new.html', argument={}, name='New Argument', opt_choice=opt_choice)
 
 @app.route('/arguments/new2')
 def arguments_new2():
-    """Creating new argument point."""
+    """Link to create a new argument for the con side"""
     opt_choice = 'argument2'
     return render_template('arguments_new.html', argument={}, name='New Argument',opt_choice=opt_choice)
 
@@ -48,23 +48,26 @@ def arguments_submit():
 #Update
 @app.route('/arguments/<argument_id>/edit')
 def arguments_edit(argument_id):
+    """Update argument point if needed"""
     argument = arguments.find_one({'_id' : ObjectId(argument_id)})
     return render_template('arguments_edit.html',argument=argument)
 
 
 @app.route('/arguments/<argument_id>', methods=['POST'])
 def arguments_update(argument_id):
+    """Takes in the updated info"""
     update_argument={
         'title': request.form.get('title'),
         'point': request.form.get('point'),
         'optradio': request.form.get('optradio')
     }
     arguments.update_one({'_id':ObjectId(argument_id)},{'$set': update_argument})
-    return redirect(url_for('index'))
-
+    return redirect(url_for('index',argument_id=argument_id))
+#============================================================================
 #Destroy
 @app.route('/arguments/<argument_id>/delete')
 def arguments_delete(argument_id):
+    """Delete an argument you don't want anymore"""
     arguments.delete_one({'_id':ObjectId(argument_id)})
     return redirect(url_for('index'))
 
