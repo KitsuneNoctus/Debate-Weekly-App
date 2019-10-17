@@ -11,20 +11,21 @@
                 <!-- Argument-->
                 <div class='form-group'>
                     <label for='point'>Argument Point</label><br>
-                    <textarea class='form-control' id='point' name='point' rows='5' value='{{ argument.point }}'> </textarea>
+                    <textarea class='form-control' id='argument-point' name='point' rows='5' >{{ argument.point }} </textarea>
                 </div>
 
                 <!-- From W3Schools tutorial -->
                 <!-- https://www.w3schools.com/bootstrap/bootstrap_forms_inputs.asp -->
                 <!-- <input class='form-control' type='hidden' name='optradio' value=opt_choice> -->
                 <div class="radio">
-                    <label><input type="radio" name="optradio" value='argument1'>Argument Pro</label>
+                    <label><input type="radio" name="optradio" value='argument1'{% if argument.optradio == 'argument1' %} checked {% endif %}>Argument Pro</label>
                 </div>
 
                 <div class="radio">
-                    <label><input type="radio" name="optradio" value='argument2'>Argument Con</label>
+                    <label><input type="radio" name="optradio" value='argument2'{% if argument.optradio == 'argument2' %} checked {% endif %}>Argument Con</label>
                 </div>
         </div>
     </div>
+
 
 </fieldset>
