@@ -1,25 +1,29 @@
 <!-- arguments_form.html -->
 <fieldset>
-    <legend>Argument Point</legend>
-        <!-- TITLE -->
-        <div class='form-group'>
-            <label for='argument-title'>Title</label><br>
-            <input class='form-control' id='argument-title' type='text' name='title' value='{{ argument.title }}'/>
-        </div>
-        <!-- Argument-->
-        <div class='form-group'>
-            <label for='point'>Argument Point</label><br>
-            <input class='form-control' id='point' type='text' name='point' value='{{ argument.point }}' />
-        </div>
+    <div class="card">
+        <div class="card-body">
+            <legend>Argument Point</legend>
+                <!-- TITLE -->
+                <div class='form-group'>
+                    <label for='argument-title'>Title</label><br>
+                    <input class='form-control' id='argument-title' type='text' name='title' value='{{ argument.title }}'/>
+                </div>
+                <!-- Argument-->
+                <div class='form-group'>
+                    <label for='point'>Argument Point</label><br>
+                    <textarea class='form-control' id='point' type='text' name='point' rows='5' value='{{ argument.point }}'> </textarea>
+                </div>
 
-        <!-- From W3Schools tutorial -->
-        <!-- https://www.w3schools.com/bootstrap/bootstrap_forms_inputs.asp -->
-        <div class="radio">
-            <label><input type="radio" name="optradio" value='argument1'>Argument Pro</label>
-        </div>
+                <!-- From W3Schools tutorial -->
+                <!-- https://www.w3schools.com/bootstrap/bootstrap_forms_inputs.asp -->
+                <div class="radio">
+                    <label><input type="radio" name="optradio" value='argument1'>Argument Pro</label>
+                </div>
 
-        <div class="radio">
-            <label><input type="radio" name="optradio" value='argument2'>Argument Con</label>
+                <div class="radio">
+                    <label><input type="radio" name="optradio" value='argument2'>Argument Con</label>
+                </div>
         </div>
+    </div>
 
 </fieldset>
