@@ -12,6 +12,7 @@ db = client.get_default_database()
 arguments = db.arguments
 comments = db.comments
 users = db.users
+# https://stackoverflow.com/questions/28968660/how-to-convert-a-pymongo-cursor-cursor-into-a-dict
 user_data = users.find()
 
 app = Flask(__name__)
