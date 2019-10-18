@@ -13,13 +13,6 @@ arguments = db.arguments
 comments = db.comments
 users = db.users
 
-user = {
-    'username': 'Henry',
-    'password': '12345'
-}
-users.insert_one(user)
-
-
 app = Flask(__name__)
 
 #Read
@@ -123,9 +116,8 @@ def login():
     # https://realpython.com/introduction-to-flask-part-2-creating-a-login-page/
     error = None
     if request.method == 'POST':
-        user_name = users.find_one({'username':request.form['username']})
-        user_password = users.find_one({'password':request.form['password']})
-        if request.form['username'] != user_name or request.form['password'] != user_password:
+        user_get= users.find({'username': request.form['username']}, {'password': request.form['password']})
+        if request.form['username'] != 'moo' or request.form['password'] != '111':
             error = 'Invalid Credentials. Please try again.'
         else:
             return redirect(url_for('index'))
