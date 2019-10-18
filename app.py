@@ -18,9 +18,9 @@ app = Flask(__name__)
 #Read
 @app.route('/')
 def index():
-    # """Homepage"""
+    """Homepage: Displays everything"""
     # argument_comments = comments.find({'argument_id': ObjectId(argument_id)})
-    return render_template('debate_home.html', arguments1=arguments.find({'optradio':'argument1'}),arguments2=arguments.find({'optradio':'argument2'}),)
+    return render_template('debate_home.html', arguments1=arguments.find({'optradio':'argument1'}),arguments2=arguments.find({'optradio':'argument2'}),comments=comments.find())
 #Create Call
 @app.route('/arguments/new1')
 def arguments_new1():
@@ -83,7 +83,7 @@ def comments_new():
         'argument_id': ObjectId(request.form.get('argument_id'))
     }
     comment_id = comments.insert_one(comment).inserted_id
-    return redirect(url_for('index', argument_id=request.form.get('argument_id')))
+    return redirect(url_for('index'))
 
 #Delete a Comment ----------------------------------------
 @app.route('/arguments/comments/<comment_id>', methods=['POST'])
