@@ -96,6 +96,9 @@ def comments_delete(comment_id):
 #=========================================================================
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    """To open a login page for users"""
+    # Used code from here initially
+    # https://realpython.com/introduction-to-flask-part-2-creating-a-login-page/
     error = None
     if request.method == 'POST':
         if request.form['username'] != 'admin' or request.form['password'] != 'admin':

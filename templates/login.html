@@ -1,23 +1,30 @@
 {% extends 'base.html'%}
 {% block content %}
 <form action='/login' method='POST'>
-    <fieldset>
+        <fieldset>
+            <div class="card">
+                <div class="card-body">
+                    <legend>Login</legend>
+                        <!-- TITLE -->
+                        <div class='form-group'>
+                            <label for='username'>Username</label><br>
+                            <input class='form-control' id='username' type='text' name='username'/>
+                        </div>
+                        <!-- Argument-->
+                        <div class='form-group'>
+                            <label for='password'>Password</label><br>
+                            <input class='form-control' id='password' type='text' name='password'/>
+                        </div>
+                        {% if error != None %}
+                        <p>error<p>
+                        {% endif %}
 
-<form>
-    <fieldset>
-        <!-- DESCRIPTION -->
-        <div class='form-group'>
-            <label for='comment-content'>Comment</label><br>
-            <textarea class='form-control'
-                id='comment-content'
-                name='content'
-                placeholder='Your comment...'/></textarea>
-        </div>
-    </fieldset>
+                        <div class='form-group'>
+                            <button class='btn btn-primary' type='submit'>Login</button>
+                        </div>
+                </div>
+            </div>
 
-    <!-- BUTTON -->
-    <div class='form-group'>
-        <button class='btn btn-primary' type='submit'>Save Comment</button>
-    </div>
-</form>
+
+        </fieldset>
 {% endblock %}
