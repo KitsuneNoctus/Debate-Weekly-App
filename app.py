@@ -96,7 +96,12 @@ def comments_delete(comment_id):
 #=========================================================================
 @app.route('/login/new_user')
 def sign_up():
-    return('login.html')
+    user = {
+        'username': request.form.get('username'),
+        'password': request.form.get('password')
+    }
+    user_id = users.insert_one(user).inserted_id
+    return render_template('login.html')
     pass
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -106,7 +111,7 @@ def login():
     # https://realpython.com/introduction-to-flask-part-2-creating-a-login-page/
     error = None
     if request.method == 'POST':
-        if request.form['username'] != 'admin' or request.form['password'] != 'admin':
+        if request.form['username'] != users.find({'username':request.form['username']}) or request.form['password'] != users.findOne({'password':request.form['password']}):
             error = 'Invalid Credentials. Please try again.'
         else:
             return redirect(url_for('index'))
