@@ -3,4 +3,8 @@
 
 <p class='text-justify'>{{ comment.content }}</p>
 <!-- Delete link -->
-<p><a method='POST' action='/arguments/comments/{{ comment._id }}'>Delete</a></p>
+<p>
+    <form method='POST' action='/arguments/comments/{{ comment._id }}'>
+            <button class='btn btn-link' type='submit'>Delete</button>
+    </form>
+</p>

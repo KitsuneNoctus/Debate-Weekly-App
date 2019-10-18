@@ -88,7 +88,9 @@ def comments_new():
 #Delete a Comment ----------------------------------------
 @app.route('/arguments/comments/<comment_id>', methods=['POST'])
 def comments_delete(comment_id):
-    pass
+    comment = comments.find_one({'_id': ObjectId(comment_id)})
+    comments.delete_one({'_id': ObjectId(comment_id)})
+    return redirect(url_for('index'))
 
 
 if __name__=='__main__':

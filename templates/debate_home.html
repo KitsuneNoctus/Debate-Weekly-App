@@ -19,7 +19,9 @@
                                 <hr>
                                 <!-- Show Comments -->
                                 {% for comment in comments %}
-                                    {% include 'partials/comment.html' %}
+                                    {% if comment.argument_id == argument._id %}
+                                        {% include 'partials/comment.html' %}
+                                    {% endif %}
                                 {% endfor %}
                             </div>
                         </div>
