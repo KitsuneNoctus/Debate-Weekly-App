@@ -12,6 +12,7 @@ db = client.get_default_database()
 arguments = db.arguments
 comments = db.comments
 users = db.users
+user_data = users.find()
 
 app = Flask(__name__)
 
@@ -116,11 +117,16 @@ def login():
     # https://realpython.com/introduction-to-flask-part-2-creating-a-login-page/
     error = None
     if request.method == 'POST':
-        user_get= users.find({'username': request.form['username']}, {'password': request.form['password']})
-        if request.form['username'] != 'moo' or request.form['password'] != '111':
-            error = 'Invalid Credentials. Please try again.'
-        else:
-            return redirect(url_for('index'))
+        # for user in user_data:
+        #     print(user['username'])
+        #     print(user['password'])
+        # user_get= users.find({'username': request.form['username']}, {'password': request.form['password']})
+
+        for user in user_data:
+            if request.form['username'] != user['username'] or request.form['password'] != user['password']:
+                error = 'Invalid Credentials. Please try again.'
+            else:
+                return redirect(url_for('index'))
     return render_template('login.html', error=error)
 
 
