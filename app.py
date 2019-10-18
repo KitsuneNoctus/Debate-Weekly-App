@@ -94,6 +94,11 @@ def comments_delete(comment_id):
     return redirect(url_for('index'))
 
 #=========================================================================
+@app.route('/login/new_user')
+def sign_up():
+    return('login.html')
+    pass
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     """To open a login page for users"""
@@ -106,12 +111,6 @@ def login():
         else:
             return redirect(url_for('index'))
     return render_template('login.html', error=error)
-
-
-# @app.route('/login/new_user')
-# def login():
-#     return('login.html')
-#     pass
 
 
 if __name__=='__main__':

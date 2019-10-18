@@ -6,21 +6,16 @@
                 <div class="card-body">
                     <legend>Login</legend>
                         <!-- TITLE -->
-                        <div class='form-group'>
-                            <label for='username'>Username</label><br>
-                            <input class='form-control' id='username' type='text' name='username'/>
-                        </div>
-                        <!-- Argument-->
-                        <div class='form-group'>
-                            <label for='password'>Password</label><br>
-                            <input class='form-control' id='password' type='text' name='password'/>
-                        </div>
+                        {% include 'partials/login_form.html' %}
                         {% if error != None %}
                         <i><p>{{error}}<p></i>
                         {% endif %}
 
                         <div class='form-group'>
                             <button class='btn btn-primary' type='submit'>Login</button>
+                        </div>
+                        <form method='POST' action='/login/new_user'>
+                            <button class='btn btn-primary' type='submit'>Sign Up</button>
                         </div>
                 </div>
             </div>
