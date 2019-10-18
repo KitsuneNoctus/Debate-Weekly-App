@@ -17,10 +17,10 @@ app = Flask(__name__)
 
 #Read
 @app.route('/')
-def index(argument_id):
-    """Homepage"""
-    argument_comments = comments.find({'argument_id': ObjectId(argument_id)})
-    return render_template('debate_home.html', arguments1=arguments.find({'optradio':'argument1'}),arguments2=arguments.find({'optradio':'argument2'}),comment=argument_comments)
+def index():
+    # """Homepage"""
+    # argument_comments = comments.find({'argument_id': ObjectId(argument_id)})
+    return render_template('debate_home.html', arguments1=arguments.find({'optradio':'argument1'}),arguments2=arguments.find({'optradio':'argument2'}),)
 #Create Call
 @app.route('/arguments/new1')
 def arguments_new1():
