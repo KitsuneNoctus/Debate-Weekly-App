@@ -11,6 +11,7 @@ db = client.get_default_database()
 #db = client.Arguments
 arguments = db.arguments
 comments = db.comments
+users = db.users
 
 
 app = Flask(__name__)
@@ -66,7 +67,7 @@ def arguments_update(argument_id):
     }
     arguments.update_one({'_id':ObjectId(argument_id)},{'$set': update_argument})
     return redirect(url_for('index',argument_id=argument_id))
-#============================================================================
+#
 #Destroy
 @app.route('/arguments/<argument_id>/delete')
 def arguments_delete(argument_id):
@@ -91,6 +92,23 @@ def comments_delete(comment_id):
     comment = comments.find_one({'_id': ObjectId(comment_id)})
     comments.delete_one({'_id': ObjectId(comment_id)})
     return redirect(url_for('index'))
+
+#=========================================================================
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    error = None
+    if request.method == 'POST':
+        if request.form['username'] != 'admin' or request.form['password'] != 'admin':
+            error = 'Invalid Credentials. Please try again.'
+        else:
+            return redirect(url_for('index'))
+    return render_template('login.html', error=error)
+
+
+# @app.route('/login/new_user')
+# def login():
+#     return('login.html')
+#     pass
 
 
 if __name__=='__main__':

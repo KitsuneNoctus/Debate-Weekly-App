@@ -1,0 +1,23 @@
+{% extends 'base.html'%}
+{% block content %}
+<form action='/login' method='POST'>
+    <fieldset>
+
+<form>
+    <fieldset>
+        <!-- DESCRIPTION -->
+        <div class='form-group'>
+            <label for='comment-content'>Comment</label><br>
+            <textarea class='form-control'
+                id='comment-content'
+                name='content'
+                placeholder='Your comment...'/></textarea>
+        </div>
+    </fieldset>
+
+    <!-- BUTTON -->
+    <div class='form-group'>
+        <button class='btn btn-primary' type='submit'>Save Comment</button>
+    </div>
+</form>
+{% endblock %}
