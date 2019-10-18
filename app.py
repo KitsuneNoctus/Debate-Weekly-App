@@ -125,7 +125,7 @@ def login():
     if request.method == 'POST':
         user_name = users.find_one({'username':request.form['username']})
         user_password = users.find_one({'password':request.form['password']})
-        if request.form['username'] != user_name or request.form['password'] != '123':
+        if request.form['username'] != user_name or request.form['password'] != user_password:
             error = 'Invalid Credentials. Please try again.'
         else:
             return redirect(url_for('index'))
