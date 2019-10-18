@@ -96,12 +96,18 @@ def comments_delete(comment_id):
 #=========================================================================
 @app.route('/login/new_user')
 def sign_up():
+    """Link to creating a new user"""
+    return render_template('login_new.html', user={})
+
+@app.route('/login/new', methods=['POST'])
+def sign_up_submit():
+    """Create a new user"""
     user = {
         'username': request.form.get('username'),
         'password': request.form.get('password')
     }
     user_id = users.insert_one(user).inserted_id
-    return render_template('login.html')
+    return redirect(url_for('login'))
     pass
 
 @app.route('/login', methods=['GET', 'POST'])

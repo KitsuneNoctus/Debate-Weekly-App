@@ -1,0 +1,19 @@
+{% extends 'base.html'%}
+{% block content %}
+<form action='/login/new_user' method='POST'>
+        <fieldset>
+            <div class="card">
+                <div class="card-body">
+                    <form method = 'POST' action=/login/new>
+                        <legend>Sign Up</legend>
+                            <!-- TITLE -->
+                            {% include 'partials/login_form.html' %}
+                            <div class='form-group'>
+                                <button class='btn btn-primary' type='submit'>Sign Up</button>
+                            </div>
+                </div>
+            </div>
+
+
+        </fieldset>
+{% endblock %}
