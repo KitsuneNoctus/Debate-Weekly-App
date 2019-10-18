@@ -123,7 +123,9 @@ def login():
     # https://realpython.com/introduction-to-flask-part-2-creating-a-login-page/
     error = None
     if request.method == 'POST':
-        if request.form['username'] != 'admin' or request.form['password'] != '123':
+        user_name = users.find_one({'username':request.form['username']})
+        user_password = users.find_one({'password':request.form['password']})
+        if request.form['username'] != user_name or request.form['password'] != '123':
             error = 'Invalid Credentials. Please try again.'
         else:
             return redirect(url_for('index'))
