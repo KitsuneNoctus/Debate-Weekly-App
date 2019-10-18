@@ -18,11 +18,11 @@
                                 {% include 'partials/comment_form.html' %}
                                 <hr>
                                 <!-- Show Comments -->
-                                {% for comment in comments %}
+                                <!-- {% for comment in comments %}
                                     {% if comment.argument_id == argument._id %}
                                         {% include 'partials/comment.html' %}
                                     {% endif %}
-                                {% endfor %}
+                                {% endfor %} -->
                             </div>
                         </div>
                     {% endif %}
@@ -45,9 +45,11 @@
                                 {% include 'partials/comment_form.html' %}
                                 <hr>
                                 <!-- Show Comments -->
-                                {% for comment in comments %}
-                                    {% include 'partials/comment.html' %}
-                                {% endfor %}
+                                <!-- {% for comment in comments %}
+                                    {% if comment.argument_id == argument._id %}
+                                        {% include 'partials/comment.html' %}
+                                    {% endif %}
+                                {% endfor %} -->
                             </div>
                         </div>
                     {% endif %}
