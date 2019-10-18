@@ -17,9 +17,10 @@ app = Flask(__name__)
 
 #Read
 @app.route('/')
-def index():
+def index(argument_id):
     """Homepage"""
-    return render_template('debate_home.html', arguments1=arguments.find({'optradio':'argument1'}),arguments2=arguments.find({'optradio':'argument2'}))
+    argument_comments = comments.find({'argument_id': ObjectId(argument_id)})
+    return render_template('debate_home.html', arguments1=arguments.find({'optradio':'argument1'}),arguments2=arguments.find({'optradio':'argument2'}),comment=argument_comments)
 #Create Call
 @app.route('/arguments/new1')
 def arguments_new1():
@@ -43,9 +44,9 @@ def arguments_submit():
         'optradio': request.form.get('optradio')
     }
     print(argument['optradio'])
-    arguments.insert_one(argument)
+    argument_id = arguments.insert_one(argument).inserted_id
     #argument_id = arguments.insert_one(argument).inserted_id
-    return redirect(url_for('index'))
+    return redirect(url_for('index',argument_id=argument_id))
 
 #Update
 @app.route('/arguments/<argument_id>/edit')
@@ -77,7 +78,12 @@ def arguments_delete(argument_id):
 #-------Comments--------------
 @app.route('/arguments/comments', methods=['POST'])
 def comments_new():
-    pass
+    comment={
+        'content': request.form.get('content'),
+        'argument_id': ObjectId(request.form.get('argument_id'))
+    }
+    comment_id = comments.insert_one(comment).inserted_id
+    return redirect(url_for('index', argument_id=request.form.get('argument_id')))
 
 #Delete a Comment ----------------------------------------
 @app.route('/arguments/comments/<comment_id>', methods=['POST'])

@@ -14,6 +14,13 @@
                                 <small>{{ argument.point }}</small><br>
                                 <p><a href='/arguments/{{ argument._id }}/edit'>Edit</a></p>
                                 <p><a href='/arguments/{{ argument._id }}/delete'>Delete</a></p>
+                                <!-- Comment form -->
+                                {% include 'partials/comment_form.html' %}
+                                <hr>
+                                <!-- Show Comments -->
+                                {% for comment in comments %}
+                                    {% include 'partials/comment.html' %}
+                                {% endfor %}
                             </div>
                         </div>
                     {% endif %}
@@ -32,6 +39,13 @@
                                 <small>{{ argument.point }}</small><br>
                                 <p><a href='/arguments/{{ argument._id }}/edit'>Edit</a></p>
                                 <p><a href='/arguments/{{ argument._id }}/delete'>Delete</a></p>
+                                <!-- Comment form -->
+                                {% include 'partials/comment_form.html' %}
+                                <hr>
+                                <!-- Show Comments -->
+                                {% for comment in comments %}
+                                    {% include 'partials/comment.html' %}
+                                {% endfor %}
                             </div>
                         </div>
                     {% endif %}
